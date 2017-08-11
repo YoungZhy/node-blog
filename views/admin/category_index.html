@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} 
+
+{% block main %}
+<ol class="am-breadcrumb">
+  <li><a href="/admin" class="am-icon-home">首页</a></li>
+  <li class="am-active">分类列表</li>
+</ol>
+<p class="am-text-xl">分类列表</p>
+<a class="am-btn am-btn-primary am-margin-bottom" href="/admin/category/add">添加</a>
+
+{% if pages %}
+<table class="am-table am-table-hover am-table-bordered am-table-striped am-table-centered am-text-nowrap">
+  <thead>
+    <tr>
+      <th>数据库ID</th>
+      <th>分类名称</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+   <tbody>
+    {% for category in categories %}
+    <tr>
+      <td>{{category._id.toString()}}</td>
+      <td>{{category.name}}</td>
+      <td>
+        <a class="am-btn am-btn-primary am-btn-xs" href="/admin/category/edit?id={{category._id.toString()}}">修改</a>
+        <a class="am-btn am-btn-danger am-btn-xs" href="javascript:deleteModel('category', '{{category._id.toString()}}');">删除</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody> 
+</table>
+{% include 'page.html' %}
+
+{% else %}
+<div class="am-alert am-alert-secondary am-text-center">
+  当前无分类，请添加
+</div> 
+{% endif %} 
+
+{% endblock %}

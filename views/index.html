@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>index</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <script src="/public/js/jquery-3.0.0.min.js"></script>
+  <script src="/public/js//common.js"></script>
+
+  <!-- <script src="public/index.js"></script> -->
+  <link rel="stylesheet" href="/public/css/amazeui.min.css">
+  <link rel="stylesheet" href="/public/css/main.css">
+
+</head>
+
+<body>
+  <!-- <div class="loading">loading</div> -->
+  <!--在这里编写你的代码-->
+  <div class="header-wrapper">
+    <h1 class="title">Blog</h1>
+    <div class="nav">
+      <ul>
+        <li><a href="javascript:">Index</a></li>
+        {% for category in categories %}
+        <li><a href="javascript:">{{category.name}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+     {% if userInfo._id %}
+    <div class="user-info">
+      <span class="name">{{userInfo.username}}</span>
+      {% if userInfo.isAdmin %}
+      <span class="admin"><a href="/admin">点击进入管理</a></span>
+      {% endif %}
+      <span><a href="javascript:" class="logout">退出</a></span>
+    </div>
+    {% endif %}
+  </div>
+  <div class="am-container">
+    <div class="main-wrapper am-g">
+      <div class="article am-u-md-8">
+        {% for content in contents %}
+        <div class="item">
+          <h2 class="title">{{content.title}}</h2>
+          <span class="info">作者：admin - 时间：{{content.addTime|date('Y-m-d H:i:s', -8*60)}} - 阅读：{{content.views}} - 评论：5</span>
+          <p class="preview">{{content.desc}}</p>
+          <div class="am-btn am-btn-secondary">阅读全文</div>
+        </div>
+        {% endfor %}
+        {% include './admin/page.html' %}
+      </div>
+      {% if !userInfo._id %}
+      <div class="form-wrapper am-u-md-4">
+        <div class="login am-form" action="post">
+          <fieldset>
+            <legend>登录</legend>
+            <div class="am-form-group">
+              <!-- <label for="login-username" class="am-form-label">用户名</label> -->
+              <input id="login-username" type="text" name="username" placeholder="用户名">
+            </div>
+            <div class="am-form-group">
+              <!-- <label for="login-password" class="am-form-label">密码</label> -->
+              <input id="login-password" type="password" name="password" placeholder="密码">
+            </div>
+            <div class="am-form-group">
+              <button class="am-btn am-btn-primary am-btn-block">登录</button>
+            </div>
+            <a href="javascript:;">注册</a>
+            <span class="register-tip"></span>
+          </fieldset>
+        </div>
+        <div class="register am-form" action="post">
+          <fieldset>
+            <legend>注册</legend>
+            <div class="am-form-group">
+              <!-- <label for="login-username" class="am-form-label">用户名</label> -->
+              <input id="register-username" type="text" name="username" placeholder="用户名">
+            </div>
+            <div class="am-form-group">
+              <!-- <label for="login-password" class="am-form-label">密码</label> -->
+              <input id="register-password" type="password" name="password" placeholder="密码">
+            </div>
+            <div class="am-form-group">
+              <!-- <label for="login-password" class="am-form-label">密码</label> -->
+              <input id="register-repassword" type="password" name="repassword" placeholder="再次输入密码">
+            </div>
+            <div class="am-form-group">
+              <button class="am-btn am-btn-primary am-btn-block">注册</button>
+            </div>
+            <a href="javascript:;">登录</a>
+            <span class="register-tip"></span>
+          </fieldset>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--[if (gte IE 9)|!(IE)]><!-->
+
+  <!--<![endif]-->
+  <!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<![endif]-->
+  <script src="/public/js/amazeui.min.js"></script>
+  <script src="/public/js/index.js"></script>
+</body>
+
+</html>

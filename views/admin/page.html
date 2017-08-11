@@ -1,0 +1,7 @@
+<ul class="am-pagination am-pagination-centered">
+  <li {% if page==1 %}class="am-disabled" {% else %}data-am-popover="{theme: 'primary sm', content: '首页', trigger: 'hover focus'}"{% endif %}><a href="javascript:changePage('?page=1')"><span class="am-icon-angle-double-left"></span></a></li>
+  <!-- <li {% if page==1 %}class="am-disabled"{% endif %}><a href="./?page={{page-1}}">&laquo; Prev</a></li><span class="am-padding-horizontal">{{page}}/{{pages}}</span> -->
+  <li {% if page==1 %}class="am-disabled"{% endif %}><a href="javascript:changePage('?page={{page-1}}')">&laquo; Prev</a></li><span class="am-padding-horizontal">{{page}}/{{pages}}</span>
+  <li {% if page==pages %}class="am-disabled"{% endif %}><a href="javascript:changePage('?page={{page+1}}')">Next &raquo;</a></li>
+  <li {% if page==pages %}class="am-disabled"{% else %}data-am-popover="{theme: 'primary sm', content: '尾页', trigger: 'hover focus'}"{% endif %}><a href="javascript:changePage('?page={{pages}}')"><span class="am-icon-angle-double-right"></span></a></li>
+</ul>

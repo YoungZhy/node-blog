@@ -1,0 +1,29 @@
+{% extends 'layout.html' %} {% block main %}
+<ol class="am-breadcrumb">
+  <li><a href="/admin" class="am-icon-home">首页</a></li>
+  <li class="am-active">错误提示</li>
+</ol>
+
+<div class="am-panel am-panel-danger">
+  <header class="am-panel-hd">
+    <h3 class="am-panel-title">错误提示</h3>
+  </header>
+  <div class="am-panel-bd am-text-xl">
+    {{message}}
+  </div>
+  <div class="am-panel-footer">
+    {% if url %}
+    <a class="am-btn am-btn-primary" href={{url}}>返回</a> 
+    {% else %}
+    <a class="am-btn am-btn-primary" href="javascript:window.history.back()">返回</a> 
+    {% endif %}
+
+  </div>
+</div>
+<!-- <script>
+  setTimeout(function () {
+    window.history.back()
+  }, 3000)
+</script> -->
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} 
+
+{% block main %}
+
+<ol class="am-breadcrumb">
+  <li><a href="/admin" class="am-icon-home">首页</a></li>
+  <li><a href="/admin/content">内容列表</a></li>
+  <li class="am-active">内容添加</li>
+</ol>
+<p class="am-text-xl">内容添加</p>
+
+<form class="am-form" method="post">
+  <fieldset>
+    <!-- <legend>表单标题</legend> -->
+     <div class="am-form-group">
+      <label for="category">下拉多选框</label>
+      <select id="category" name="category">
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+      </select>
+      <span class="am-form-caret"></span>
+    </div> 
+
+    <div class="am-form-group">
+      <label for="title">标题：</label>
+      <input type="text" id="title" placeholder="输入标题" name="title">
+    </div>
+    <div class="am-form-group">
+      <label for="desc">简介：</label>
+      <textarea id="desc" placeholder="输入简介" name="desc"></textarea>
+    </div>
+    <div class="am-form-group">
+      <label for="content">内容：</label>
+      <textarea id="content" rows="10" placeholder="输入内容" name="content"></textarea>
+    </div>
+    <p><button type="submit" class="am-btn am-btn-primary">添加</button></p>
+  </fieldset>
+</form>
+
+{% endblock %}

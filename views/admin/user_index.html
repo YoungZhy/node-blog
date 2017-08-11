@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+
+{% block main %}
+<ol class="am-breadcrumb">
+  <li><a href="/admin" class="am-icon-home">首页</a></li>
+  <li class="am-active">用户列表</li>
+</ol>
+<p class="am-text-xl">注册用户列表</p>
+<table class="am-table am-table-hover am-table-bordered am-table-striped am-table-centered am-text-nowrap">
+  <thead>
+    <tr>
+      <th>数据库ID</th>
+      <th>用户名</th>
+      <th>密码</th>
+      <!-- <th>Is admin</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr {% if user.isAdmin %}class="am-primary"{% endif %}>
+      <td>{{user._id.toString()}}
+        {% if user.isAdmin %}<span class="am-badge am-badge-primary am-radius am-margin-left-xs">Admin</span>{% endif %}
+      </td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <!-- <td>{% if user.isAdmin%}是{%endif%}</td> -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% include 'page.html' %}
+
+
+{% endblock %}

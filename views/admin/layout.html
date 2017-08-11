@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Admin</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <script src="/public/js/jquery-3.0.0.min.js"></script>
+  <script src="/public/js//common.js"></script>
+
+  <link rel="stylesheet" href="/public/css/amazeui.min.css">
+
+</head>
+
+<body>
+  <header class="am-topbar am-topbar-inverse am-topbar-fixed-top">
+    <h1 class="am-topbar-brand">
+      <span class="am-margin-horizontal">后台管理</span>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse-4'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse-4">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li><a href="/admin">首页</a></li>
+        <li><a href="/admin/user">用户管理</a></li>
+        <li><a href="/admin/category">分类管理</a></li>
+        <li><a href="/admin/content">内容管理</a></li>
+      </ul>
+
+      <div class="am-topbar-right">
+        <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+          <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle>
+          <span class="am-icon-users"></span> Admin 
+          <span class="am-icon-caret-down"></span>
+        </button>
+          <ul class="am-dropdown-content">
+            <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="container am-margin">
+    {%block main%}{%endblock%}
+  </div>
+
+  <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+  <div class="am-modal-dialog">
+    <!-- <div class="am-modal-hd">Warning！</div> -->
+    <div class="am-margin-vertical-lg am-modal-bd" style="border:0">
+      确定要删除此内容吗？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn am-btn-default" data-am-modal-cancel style="color:black">取消</span>
+      <span class="am-modal-btn am-btn-danger" data-am-modal-confirm style="color:aliceblue">确定</span>
+      
+    </div>
+  </div>
+</div>
+  
+
+  <!--[if (gte IE 9)|!(IE)]><!-->
+
+  <!--<![endif]-->
+  <!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<![endif]-->
+  <script src="/public/js/amazeui.min.js"></script>
+</body>
+
+</html>

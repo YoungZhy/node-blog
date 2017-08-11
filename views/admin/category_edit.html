@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} 
+
+{% block main %}
+<ol class="am-breadcrumb">
+  <li><a href="/admin" class="am-icon-home">首页</a></li>
+  <li><a href="/admin/category">分类列表</a></li>
+  <li class="am-active">分类编辑</li>
+</ol>
+<p class="am-text-xl">分类编辑 - {{category.name}}</p>
+
+<form class="am-form" method="post">
+  <fieldset>
+    <!-- <legend>表单标题</legend> -->
+
+    <div class="am-form-group">
+      <label for="name">分类名称</label>
+      <input type="text" id="name" placeholder="输入分类名称" name="name" value="{{category.name}}">
+    </div>
+    <p><button type="submit" class="am-btn am-btn-primary">提交</button></p>
+  </fieldset>
+</form>
+
+
+
+{% endblock %}
